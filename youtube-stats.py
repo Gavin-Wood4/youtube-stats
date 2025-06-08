@@ -4,35 +4,34 @@ import os
 import argparse
 import sys
 
-def get_channel_stats(api_key: str, channel_id: str):
+def get_channel_stats(api_key: str, channel_id: str) -> None:
     try:
         youtube = build('youtube', 'v3', developerKey = api_key)
 
-        request = youtube.channels().list(part='statistics', id=channel_id)
+        request = youtube.channels().list(part='snippet,statistics', id=channel_id)
 
         response = request.execute()    # Requests statistics for specified YouTube channel ID.
         if not response.get('items'):
             print(f"Error: Could not not find a channel with ID {channel_id}")
             return
 
-        stats = response['items'][0].get('statistics')  # stats contains the channel data.
-        if not stats:
-            print(f"Error: Statistics are not available for channel ID {channel_id}")
-            return
+        item = response['items'][0]
+        snippet = item.get('snippet', {})
+        stats = item.get('statistics', {})
 
-        print(f"Statistics for Channel ID {channel_id}\n")
-
+        channel_name = snippet.get('title', 'N/A')
+        print(f"Statistics for channel {channel_name} ({channel_id}):\n")
+        publish_date = snippet.get('publishedAt', 'N/A')
+        print(f"{'Channel Publish Date':<25}: {publish_date[:10]}") 
         metrics = {     # Pairs API item name with command line output.
             'viewCount': 'Total View Count',
             'subscriberCount': 'Subscriber Count',
             'videoCount': 'Total Video Count'
         }
-
         for key, title, in metrics.items():
             if key in stats:
                 stat_value = int(stats[key])
                 print(f"{title:<25}: {stat_value:,}") # Formatting >1000 with commas for readibility.
-
         if stats.get('hiddenSubscriberCount', False):
             printf(f"{'Subscriber Count':<25}: Hidden")
 
