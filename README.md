@@ -14,13 +14,13 @@ This project demonstrates Python programming fundamentals and API accessing.
   
   - [ ] Channel
     
-    - [ ] Subscriber Count
+    - [X] Subscriber Count
     
-    - [ ] Viewer Count
+    - [X] Total Viewer Count
     
-    - [ ] hiddenSubscriberCount boolean
+    - [X] hiddenSubscriberCount boolean
     
-    - [ ] videoCount
+    - [X] videoCount
     
     - [ ] Channel name
     
@@ -30,7 +30,7 @@ This project demonstrates Python programming fundamentals and API accessing.
     
     - [ ] Channel country associate
   
-  - [ ] Channel Video Data
+  - [ ] Channel Video Data Graph x axis place in # best video on channel y axis for top x videos values
     
     - [ ] For Top x Videos:
       
