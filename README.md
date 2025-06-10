@@ -2,11 +2,7 @@
 
 A command-line tool written in Python to gather statistics and generate informational graphs for a specified YouTube channel.
 
-
-
 This project demonstrates Python programming fundamentals and API accessing.
-
-
 
 # To-Do
 
@@ -22,13 +18,13 @@ This project demonstrates Python programming fundamentals and API accessing.
     
     - [X] videoCount
     
-    - [ ] Channel name
+    - [X] Channel name
     
     - [ ] Channel Description
     
-    - [ ] Channel Creation Date
+    - [X] Channel Creation Date
     
-    - [ ] Channel country associate
+    - [ ] Channel country associated
   
   - [ ] Channel Video Data Graph x axis place in # best video on channel y axis for top x videos values
     
